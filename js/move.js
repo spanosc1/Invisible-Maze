@@ -7,7 +7,10 @@ $(document).ready(function(){
             currentPositionX--;
             if(currentPositionX == 11 && currentPositionY == 11)
             {
-                window.setTimeout(youWin, 100);
+                //window.setTimeout(youWin, 10000);
+                var audio = new Audio('assets/running.mp3');
+                audio.play();
+                freakout();
             }
         }
     };
@@ -17,10 +20,12 @@ $(document).ready(function(){
         {
             element.style.left = parseInt(element.style.left) + 50 + 'px';
             currentPositionX++;
-            console.log(currentPositionX == 11);
             if(currentPositionX == 11 && currentPositionY == 11)
             {
-                window.setTimeout(youWin, 100);
+                //window.setTimeout(youWin, 10000);
+                var audio = new Audio('assets/running.mp3');
+                audio.play();
+                freakout();
             }
         }
     };
@@ -32,7 +37,10 @@ $(document).ready(function(){
             currentPositionY--;
             if(currentPositionX == 11 && currentPositionY == 11)
             {
-                window.setTimeout(youWin, 100);
+                //window.setTimeout(youWin, 10000);
+                var audio = new Audio('assets/running.mp3');
+                audio.play();
+                freakout();
             }
         }
     };
@@ -44,17 +52,35 @@ $(document).ready(function(){
             currentPositionY++;
             if(currentPositionX == 11 && currentPositionY == 11)
             {
-                window.setTimeout(youWin, 100);
+                //window.setTimeout(youWin, 10000);
+                var audio = new Audio('assets/running.mp3');
+                audio.play();
+                freakout();
             }
         }
     };
     function youWin() {
-        alert("You win!");
         var element = document.getElementById("image1");
+        element.setAttribute('src', 'http://placekitten.com/69/69');
+        var body = document.getElementsByTagName("BODY")[0];
+        body.style.backgroundImage = '';
         element.style.left = 0;
         element.style.top = 0;
+        element.style.width = 50;
+        element.style.height = 50;
         currentPositionX = 0;
         currentPositionY = 0;
+    }
+    function freakout() {
+        var element = document.getElementById("image1");
+        element.setAttribute('src', 'assets/cat.gif');
+        var body = document.getElementsByTagName("BODY")[0];
+        body.style.backgroundImage = 'url("assets/redblue.gif")';
+        element.style.left = 0;
+        element.style.top = 0;
+        element.style.width = 600 + 'px';
+        element.style.height = 600 + 'px';
+        window.setTimeout(youWin, 12100);
     }
     function moveSelection(evt) {
         switch (evt.keyCode) {
